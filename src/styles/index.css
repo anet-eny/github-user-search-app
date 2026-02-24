@@ -1,0 +1,156 @@
+@import "@fontsource/space-mono/400.css";
+@import "@fontsource/space-mono/700.css";
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ---------- Font ---------- */
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  /* ---------- Neutral ---------- */
+  --color-neutral-900: oklch(18.2% 0.042 222); /* #141D2F */
+  --color-neutral-800: oklch(22.8% 0.044 222); /* #1E2A47 */
+  --color-neutral-700: oklch(27.8% 0.034 222); /* #2B3442 */
+  --color-neutral-500: oklch(46.4% 0.052 222); /* #4B6A9B */
+  --color-neutral-300: oklch(52.2% 0.044 222); /* #697C9A */
+  --color-neutral-200: oklch(69.5% 0.052 232); /* #90A4D4 */
+  --color-neutral-100: oklch(97.3% 0.01 227); /* #F6F8FF */
+  --color-neutral-0: oklch(100% 0 0); /* #FFFFFF */
+
+  /* ---------- Blue ---------- */
+  --color-blue-500: oklch(52.5% 0.21 250); /* #0079FF */
+  --color-blue-300: oklch(70.2% 0.13 250); /* #60ABFF */
+
+  /* ---------- Red ---------- */
+  --color-red-500: oklch(64.8% 0.22 25); /* #F74646 */
+
+  /* ---------- Radius ---------- */
+  --radius-card: 1rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   BASE — semantic tokens + dark mode toggle + global styles
+   ══════════════════════════════════════════════════════════════════ */
+@layer base {
+  :root {
+    --color-text-primary: var(--color-neutral-700);
+    --color-text-muted: var(--color-neutral-500);
+    --color-bg-default: var(--color-neutral-100);
+    --color-bg-surface: var(--color-neutral-0);
+    --color-border: var(--color-neutral-200);
+    --color-accent: var(--color-blue-500);
+    --color-error: var(--color-red-500);
+  }
+
+  .dark {
+    --color-text-primary: var(--color-neutral-100);
+    --color-text-muted: var(--color-neutral-300);
+    --color-bg-default: var(--color-neutral-900);
+    --color-bg-surface: var(--color-neutral-800);
+    --color-border: var(--color-neutral-700);
+  }
+
+  body {
+    font-family: var(--font-mono);
+    background-color: var(--color-bg-default);
+    color: var(--color-text-primary);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   TEXT PRESETS
+   ══════════════════════════════════════════════════════════════════ */
+
+/* 26px / Bold */
+@utility text-preset-1 {
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* 22px / Bold */
+@utility text-preset-2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* 18px / Regular */
+@utility text-preset-3 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* 13px / Regular — mobile variant preset-3 */
+@utility text-preset-3-mobile {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* 16px / Regular */
+@utility text-preset-4 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* 16px / Bold */
+@utility text-preset-5 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* 15px / Regular */
+@utility text-preset-6 {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* 13px / Regular */
+@utility text-preset-7 {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* 13px / Bold + letter-spacing */
+@utility text-preset-8 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.15625rem; /* 2.5px */
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   UTILITIES
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Card surface */
+@utility bg-surface {
+  background-color: var(--color-bg-surface);
+}
+
+/* Card */
+@utility card {
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-card);
+}
+
+/* Texts */
+@utility text-muted {
+  color: var(--color-text-muted);
+}
+
+@utility text-accent {
+  color: var(--color-accent);
+}
+
+@utility text-error {
+  color: var(--color-error);
+}
