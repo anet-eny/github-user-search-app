@@ -1,14 +1,19 @@
 import "./styles/index.css";
-// import { useGithubUser } from "./hooks/useGithubUser";
+import { SearchBar } from "./components/SearchBar";
+import { useGithubUser } from "./hooks/useGithubUser";
 // import { useTheme } from "./hooks/useTheme";
 
 function App() {
-  // const { data, status, error, fetch: fetchUser } = useGithubUser();
+  const { data, status, error, fetch: fetchUser } = useGithubUser();
   // const { theme, toggle } = useTheme();
 
   return (
     <>
-      <h1 className="text-red-300">Hello</h1>
+      <SearchBar
+        onSearch={fetchUser}
+        error={error}
+        isLoading={status === "loading"}
+      />
     </>
   );
 }

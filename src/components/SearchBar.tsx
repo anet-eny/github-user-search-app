@@ -1,5 +1,5 @@
 import { useState } from "react";
-import IconSearch from ".assets/icon-search.svg?react";
+import IconSearch from "../assets/icon-search.svg?react";
 
 interface SearchBarProps {
   onSearch: (username: string) => Promise<void>;
@@ -21,10 +21,8 @@ export function SearchBar({ onSearch, error, isLoading }: SearchBarProps) {
       onSubmit={handleSubmit}
       className="card flex items-center gap-2 px-3 py-3 sm:px-6"
     >
-      {/* Ikona lupy */}
       <IconSearch className="icon" width={24} height={24} />
 
-      {/* Input */}
       <input
         type="text"
         value={query}
@@ -39,7 +37,6 @@ export function SearchBar({ onSearch, error, isLoading }: SearchBarProps) {
         "
       />
 
-      {/* Error */}
       {error && (
         <span
           role="alert"
@@ -49,7 +46,6 @@ export function SearchBar({ onSearch, error, isLoading }: SearchBarProps) {
         </span>
       )}
 
-      {/* Tlačítko */}
       <button
         type="submit"
         disabled={isLoading}
