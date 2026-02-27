@@ -15,3 +15,5 @@ A responsive GitHub profile search app built as a [Frontend Mentor challenge](ht
 - **CSS architecture** — building a structured `index.css` with Tailwind v4, using semantic color tokens to manage light and dark mode from a single source of truth
 
 ## View Project
+
+https://anet-eny.github.io/github-user-search-app/
